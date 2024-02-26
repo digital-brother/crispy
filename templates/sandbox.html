@@ -1,1 +1,9 @@
-{{ form }}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+<script src="https://cdn.tailwindcss.com"></script>
+
+
+<div class="p-20 max-w-xl">
+  {% crispy form %}
+{#  {{ form|crispy }}#}
+</div>
