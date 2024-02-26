@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from django.views.generic import FormView
 
-# Create your views here.
+from sandbox.forms import SandboxForm
+
+
+class SandboxView(FormView):
+    template_name = 'sandbox.html'
+    form_class = SandboxForm
+
