@@ -1,4 +1,4 @@
-from django.views.generic import FormView, ListView
+from django.views.generic import FormView
 from django_tables2 import SingleTableView
 
 from sandbox.forms import SandboxForm
@@ -11,7 +11,7 @@ class SandboxView(FormView):
     form_class = SandboxForm
 
 
-class TableSandboxView(ListView):
+class TableSandboxView(SingleTableView):
     model = Server
-    # table_class = ServerTable
+    table_class = ServerTable
     template_name = 'table_sandbox.html'
