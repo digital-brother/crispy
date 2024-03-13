@@ -1,0 +1,1 @@
+Switch from queryset display to list of dicts. Table Meta model and fields = custom columns with SingleTableView.get_table_data()
