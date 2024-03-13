@@ -11,7 +11,7 @@ class SandboxView(FormView):
     form_class = SandboxForm
 
 
-class TableSandboxView(SingleTableView):
+class TableSandboxView(ListView):
     model = Server
-    table_class = ServerTable
+    # table_class = ServerTable
     template_name = 'table_sandbox.html'
