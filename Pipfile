@@ -7,6 +7,7 @@ name = "pypi"
 django = "*"
 django-crispy-forms = "*"
 crispy-tailwind = "*"
+django-tables2 = "*"
 
 [requires]
 python_version = "3.10"
