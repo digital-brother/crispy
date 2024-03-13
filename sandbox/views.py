@@ -1,8 +1,8 @@
-from django.views.generic import FormView
-from django_tables2 import SingleTableView
+from django.views.generic import FormView, TemplateView
+from django_tables2 import SingleTableView, SingleTableMixin
 
 from sandbox.forms import SandboxForm
-from sandbox.models import Server
+from sandbox.servers_data import SERVERS_DATA
 from sandbox.tables import ServerTable
 
 
@@ -11,7 +11,9 @@ class SandboxView(FormView):
     form_class = SandboxForm
 
 
-class TableSandboxView(SingleTableView):
-    model = Server
+class TableSandboxView(SingleTableMixin, TemplateView):
     table_class = ServerTable
     template_name = 'table_sandbox.html'
+
+    def get_table_data(self):
+        return SERVERS_DATA
