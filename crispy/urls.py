@@ -17,9 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from sandbox.views import SandboxView
+from sandbox.views import SandboxView, TableSandboxView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('sandbox/', SandboxView.as_view(), name='sandbox'),
+    path('table/', TableSandboxView.as_view(), name='table_sandbox'),
 ]
