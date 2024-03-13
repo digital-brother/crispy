@@ -1,40 +1,51 @@
-from crispy_forms.bootstrap import StrictButton
-from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Submit, Field
 from django import forms
+from django.db import models
 
 
 class SandboxForm(forms.Form):
-    like_website = forms.TypedChoiceField(
-        label="Do you like this website?",
-        choices=((1, "Yes"), (0, "No")),
-        coerce=lambda x: bool(int(x)),
-        widget=forms.RadioSelect,
-        initial='1',
-        required=True,
-    )
+    class Departments(models.TextChoices):
+        ABUSE = "abuse"
+        BILLING = "billing"
+        FEEDBACK = "feedback"
+        INFO = "info"
 
-    favorite_food = forms.CharField(
-        label="What is your favorite food?",
-        max_length=80,
-        required=True,
-    )
+    subject = forms.CharField(max_length=128)
+    department = forms.ChoiceField(choices=Departments.choices)
+    description = forms.CharField(widget=forms.Textarea)
+    is_urgent = forms.BooleanField()
 
-    favorite_color = forms.CharField(
-        label="What is your favorite color?",
-        max_length=80,
-        required=True,
-    )
 
-    favorite_number = forms.IntegerField(
-        label="Favorite number",
-        required=False,
-    )
-
-    notes = forms.CharField(
-        label="Additional notes or feedback",
-        required=False,
-    )
+# class SandboxForm(forms.Form):
+#     like_website = forms.TypedChoiceField(
+#         label="Do you like this website?",
+#         choices=((1, "Yes"), (0, "No")),
+#         coerce=lambda x: bool(int(x)),
+#         widget=forms.RadioSelect,
+#         initial='1',
+#         required=True,
+#     )
+#
+#     favorite_food = forms.CharField(
+#         label="What is your favorite food?",
+#         max_length=80,
+#         required=True,
+#     )
+#
+#     favorite_color = forms.CharField(
+#         label="What is your favorite color?",
+#         max_length=80,
+#         required=True,
+#     )
+#
+#     favorite_number = forms.IntegerField(
+#         label="Favorite number",
+#         required=False,
+#     )
+#
+#     notes = forms.CharField(
+#         label="Additional notes or feedback",
+#         required=False,
+#     )
 
     # def __init__(self, *args, **kwargs):
     #     super().__init__(*args, **kwargs)

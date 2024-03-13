@@ -1,3 +1,7 @@
 from django.db import models
 
-# Create your models here.
+
+class Server(models.Model):
+    domain = models.CharField(max_length=128)
+    city = models.CharField(max_length=64)
+    ip = models.CharField(max_length=16)

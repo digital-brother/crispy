@@ -40,6 +40,9 @@ INSTALLED_APPS = [
 
     'crispy_forms',
     'crispy_tailwind',
+    'django_tables2',
+
+    'sandbox',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
